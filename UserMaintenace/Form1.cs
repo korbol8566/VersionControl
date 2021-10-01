@@ -56,5 +56,15 @@ namespace UserMaintenace
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //listBox1.DataSource = null;
+            object selected = listBox1.SelectedItem;
+            listBox1.Items.Remove(selected);
+            textBox1.Clear();
+            
+           
+        }
     }
 }
