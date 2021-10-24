@@ -18,18 +18,50 @@ namespace IRF_SOAP_MNB_1024
     {
         //névtér
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         string result { get; set; }
 
         public Form1()
         {
             InitializeComponent();
+            GetCurrencies();
+            RefreshData();
+            
+        }
+
+        private void GetCurrencies()
+        {
+            //kérdezd le az MNB szolgáltatásból az elérhető valuták listáját
+
+            var mnbService2=new MNBArfolyamServiceSoapClient();
+            var request2 = new GetCurrenciesRequestBody()
+            {
+                // mnb currencies get
+            };
+            var response2 = mnbService2.GetCurrencies(request2);
+            var result2 = response2.GetCurrenciesResult;
+
+            var xml2 = new XmlDocument();
+            xml2.LoadXml(result2);
+            foreach (XmlElement element in xml2.DocumentElement)
+            {
+                Currencies.Add(result2);
+            }
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
+
             WebserviceCall();
             XMLProcess();
             ShowData();
 
             dataGridView1.DataSource = Rates;
-            chartRateData.DataSource = Rates;
-        }       
+            chartRateData.DataSource = Currencies;
+
+            
+        }
 
         private void WebserviceCall()
         {
@@ -38,9 +70,11 @@ namespace IRF_SOAP_MNB_1024
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                
+                currencyNames = comboBox1.SelectedItem.ToString(),                
+                startDate = dateTimePicker1.Value.ToShortDateString(),
+                endDate= dateTimePicker1.Value.ToShortDateString()
+                // i love U stackoverflow
             };
 
             var response = mnbService.GetExchangeRates(request);
@@ -51,6 +85,7 @@ namespace IRF_SOAP_MNB_1024
         {
             // using system.xml
             var xml = new XmlDocument();
+            //meg kéne kapnia az 59-es var-t fml
             xml.LoadXml(result);
 
             foreach (XmlElement element in xml.DocumentElement)
@@ -62,6 +97,8 @@ namespace IRF_SOAP_MNB_1024
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
                 //valuta
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 //érték
@@ -86,6 +123,21 @@ namespace IRF_SOAP_MNB_1024
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
