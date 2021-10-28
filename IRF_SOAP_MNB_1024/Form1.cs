@@ -19,42 +19,42 @@ namespace IRF_SOAP_MNB_1024
         //névtér
         BindingList<RateData> Rates = new BindingList<RateData>();
         BindingList<string> Currencies = new BindingList<string>();
-        string result { get; set; }
 
+        //var result;
         public Form1()
         {
             InitializeComponent();
-            GetCurrencies();
+            //GetCurrencies();
             RefreshData();
             
         }
+        //8
+        //private void GetCurrencies()
+        //{
+        //    //kérdezd le az MNB szolgáltatásból az elérhető valuták listáját
 
-        private void GetCurrencies()
-        {
-            //kérdezd le az MNB szolgáltatásból az elérhető valuták listáját
+        //    var mnbService2=new MNBArfolyamServiceSoapClient();
+        //    var request2 = new GetCurrenciesRequestBody()
+        //    {
+        //        // mnb currencies get
+        //    };
+        //    var response2 = mnbService2.GetCurrencies(request2);
+        //    var result2 = response2.GetCurrenciesResult;
 
-            var mnbService2=new MNBArfolyamServiceSoapClient();
-            var request2 = new GetCurrenciesRequestBody()
-            {
-                // mnb currencies get
-            };
-            var response2 = mnbService2.GetCurrencies(request2);
-            var result2 = response2.GetCurrenciesResult;
-
-            var xml2 = new XmlDocument();
-            xml2.LoadXml(result2);
-            foreach (XmlElement element in xml2.DocumentElement)
-            {
-                Currencies.Add(result2);
-            }
-        }
+        //    var xml2 = new XmlDocument();
+        //    xml2.LoadXml(result2);
+        //    foreach (XmlElement element in xml2.DocumentElement)
+        //    {
+        //        Currencies.Add(result2);
+        //    }
+        //}
 
         private void RefreshData()
         {
             Rates.Clear();
 
             WebserviceCall();
-            XMLProcess();
+            //XMLProcess();
             ShowData();
 
             dataGridView1.DataSource = Rates;
@@ -63,50 +63,55 @@ namespace IRF_SOAP_MNB_1024
             
         }
 
-        private void WebserviceCall()
+        public void WebserviceCall()
         {
             //kell előtte az a namespace: using IRF_SOAP_MNB_1024.MNBServiceReference;
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
             {
-                
-                currencyNames = comboBox1.SelectedItem.ToString(),                
-                startDate = dateTimePicker1.Value.ToShortDateString(),
-                endDate= dateTimePicker1.Value.ToShortDateString()
-                // i love U stackoverflow
+                //8
+                //currencyNames = comboBox1.SelectedItem.ToString(),                
+                //startDate = dateTimePicker1.Value.ToShortDateString(),
+                //endDate= dateTimePicker1.Value.ToShortDateString()
+
+                //3
+                currencyNames = "EUR",
+                startDate = "2020-01-01",
+                endDate = "2020-06-30"
+
             };
 
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
         }
 
-        private void XMLProcess()
-        {
-            // using system.xml
-            var xml = new XmlDocument();
-            //meg kéne kapnia az 59-es var-t fml
-            xml.LoadXml(result);
+        //private void XMLProcess(var result)
+        //{
+        //    // using system.xml
+        //    var xml = new XmlDocument();
+        //    //meg kéne kapnia a fenti result var-t fml,(Ehhez megfelelő paraméterek és visszatérési értékek létrehozásával át kell adnod a korábbi result-ot ennek a függvénynek.)
+        //    xml.LoadXml(result);
 
-            foreach (XmlElement element in xml.DocumentElement)
-            {
-                var rate = new RateData();
-                Rates.Add(rate);
+        //    foreach (XmlElement element in xml.DocumentElement)
+        //    {
+        //        var rate = new RateData();
+        //        Rates.Add(rate);
 
-                //date
-                rate.Date = DateTime.Parse(element.GetAttribute("date"));
-                //valuta
-                var childElement = (XmlElement)element.ChildNodes[0];
-                if (childElement == null)
-                    continue;
-                rate.Currency = childElement.GetAttribute("curr");
+        //        //date
+        //        rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
-                //érték
-                var unit = decimal.Parse(childElement.GetAttribute("unit"));
-                var value = decimal.Parse(childElement.InnerText);
-                if (unit != 0) rate.Value = value / unit;
-            }
-        }
+        //        //valuta
+        //        var childElement = (XmlElement)element.ChildNodes[0];
+        //        if (childElement == null) continue;
+        //        rate.Currency = childElement.GetAttribute("curr");
+
+        //        //érték
+        //        var unit = decimal.Parse(childElement.GetAttribute("unit"));
+        //        var value = decimal.Parse(childElement.InnerText);
+        //        if (unit != 0) rate.Value = value / unit;
+        //    }
+        //}
 
         private void ShowData()
         {
