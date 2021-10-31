@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IRF_Patterns_1031.Entities
 {
-    class BallFactory
+    public class BallFactory
     {
         public Ball CreateNew()
         {
