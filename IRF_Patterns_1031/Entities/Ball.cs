@@ -5,10 +5,11 @@ using System.Windows.Forms;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using IRF_Patterns_1031.Abstractions;
 
 namespace IRF_Patterns_1031.Entities
 {
-    public class Ball:Label
+    public class Ball: Toy
     {
         public Ball()
         {
@@ -23,9 +24,9 @@ namespace IRF_Patterns_1031.Entities
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics graphics)
+        protected override void DrawImage(Graphics g)
         {
-            graphics.FillEllipse(new SolidBrush(Color.Red),0,0,Width,Height);
+            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
 
         public void MoveBall()
