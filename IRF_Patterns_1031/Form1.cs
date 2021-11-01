@@ -40,7 +40,7 @@ namespace IRF_Patterns_1031
         private void createTimer_Tick(object sender, EventArgs e)
         {
             var Toy = Factory.CreateNew();
-            _toys.Add((Ball)Toy);
+            _toys.Add(Toy);
             Toy.Left = -Toy.Width;
             panel1.Controls.Add(Toy);
         }
