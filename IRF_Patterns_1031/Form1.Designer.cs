@@ -36,6 +36,7 @@ namespace IRF_Patterns_1031
             this.buttonCAR = new System.Windows.Forms.Button();
             this.buttonBALL = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonCOLOR = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,11 +87,22 @@ namespace IRF_Patterns_1031
             this.label1.TabIndex = 3;
             this.label1.Text = "Coming next";
             // 
+            // buttonCOLOR
+            // 
+            this.buttonCOLOR.BackColor = System.Drawing.Color.Green;
+            this.buttonCOLOR.Location = new System.Drawing.Point(94, 489);
+            this.buttonCOLOR.Name = "buttonCOLOR";
+            this.buttonCOLOR.Size = new System.Drawing.Size(75, 23);
+            this.buttonCOLOR.TabIndex = 4;
+            this.buttonCOLOR.UseVisualStyleBackColor = false;
+            this.buttonCOLOR.Click += new System.EventHandler(this.buttonCOLOR_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 502);
+            this.ClientSize = new System.Drawing.Size(800, 522);
+            this.Controls.Add(this.buttonCOLOR);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBALL);
             this.Controls.Add(this.buttonCAR);
@@ -111,6 +123,7 @@ namespace IRF_Patterns_1031
         private System.Windows.Forms.Button buttonCAR;
         private System.Windows.Forms.Button buttonBALL;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonCOLOR;
     }
 }
 
