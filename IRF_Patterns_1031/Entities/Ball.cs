@@ -11,9 +11,11 @@ namespace IRF_Patterns_1031.Entities
 {
     public class Ball: Toy
     {
-        public Ball()
+        public SolidBrush BallColor { get; private set; }
+        public Ball(Color color)
         {
             // el kéne olvasni a feladat leírását...
+            BallColor = new SolidBrush(color);
             AutoSize = false;
             Height = Width = 50;
             Paint += Ball_Paint;
@@ -26,7 +28,7 @@ namespace IRF_Patterns_1031.Entities
 
         protected override void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            g.FillEllipse(BallColor, 0, 0, Width, Height);
         }
 
         public void MoveBall()

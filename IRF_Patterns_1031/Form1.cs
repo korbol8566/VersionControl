@@ -68,7 +68,10 @@ namespace IRF_Patterns_1031
 
         private void buttonBALL_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = buttonCOLOR.BackColor
+            };
         }
         private void DisplayNext()
         {
