@@ -11,7 +11,7 @@ namespace IRF_Patterns_1031.Entities
     {
         public Toy CreateNew()
         {
-            return new Ball();
+            return new Car();
         }
     }
 }

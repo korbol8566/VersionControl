@@ -33,6 +33,9 @@ namespace IRF_Patterns_1031
             this.panel1 = new System.Windows.Forms.Panel();
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
+            this.buttonCAR = new System.Windows.Forms.Button();
+            this.buttonBALL = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,16 +57,49 @@ namespace IRF_Patterns_1031
             this.conveyorTimer.Interval = 10;
             this.conveyorTimer.Tick += new System.EventHandler(this.conveyorTimer_Tick);
             // 
+            // buttonCAR
+            // 
+            this.buttonCAR.Location = new System.Drawing.Point(13, 460);
+            this.buttonCAR.Name = "buttonCAR";
+            this.buttonCAR.Size = new System.Drawing.Size(75, 23);
+            this.buttonCAR.TabIndex = 1;
+            this.buttonCAR.Text = "CAR";
+            this.buttonCAR.UseVisualStyleBackColor = true;
+            this.buttonCAR.Click += new System.EventHandler(this.buttonCAR_Click);
+            // 
+            // buttonBALL
+            // 
+            this.buttonBALL.Location = new System.Drawing.Point(94, 460);
+            this.buttonBALL.Name = "buttonBALL";
+            this.buttonBALL.Size = new System.Drawing.Size(75, 23);
+            this.buttonBALL.TabIndex = 2;
+            this.buttonBALL.Text = "BALL";
+            this.buttonBALL.UseVisualStyleBackColor = true;
+            this.buttonBALL.Click += new System.EventHandler(this.buttonBALL_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(175, 463);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Coming next";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 502);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonBALL);
+            this.Controls.Add(this.buttonCAR);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -72,6 +108,9 @@ namespace IRF_Patterns_1031
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer createTimer;
         private System.Windows.Forms.Timer conveyorTimer;
+        private System.Windows.Forms.Button buttonCAR;
+        private System.Windows.Forms.Button buttonBALL;
+        private System.Windows.Forms.Label label1;
     }
 }
 
