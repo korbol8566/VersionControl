@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IRF_Patterns_1031.Entities
 {
-    public class BallFactory: IToyFactory
+    public class CarFactory : IToyFactory
     {
         public Toy CreateNew()
         {
