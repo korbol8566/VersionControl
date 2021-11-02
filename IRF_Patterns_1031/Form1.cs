@@ -27,9 +27,7 @@ namespace IRF_Patterns_1031
                 _factory = value;
                 DisplayNext();
             }
-        }
-
-       
+        }       
 
         public Form1()
         {
@@ -92,6 +90,11 @@ namespace IRF_Patterns_1031
             if (colorPicker.ShowDialog() != DialogResult.OK)
                 return;
             button.BackColor = colorPicker.Color;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory();
         }
     }
 }
