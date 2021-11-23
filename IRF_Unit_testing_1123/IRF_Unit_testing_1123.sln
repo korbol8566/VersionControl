@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRF_Unit_testing_1123", "IRF_Unit_testing_1123\IRF_Unit_testing_1123.csproj", "{575AEB7A-3590-4F36-8B30-AB44DBA8A518}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{575AEB7A-3590-4F36-8B30-AB44DBA8A518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575AEB7A-3590-4F36-8B30-AB44DBA8A518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575AEB7A-3590-4F36-8B30-AB44DBA8A518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575AEB7A-3590-4F36-8B30-AB44DBA8A518}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E7CD98E-352E-4E09-BF3C-35B2689479D6}
+	EndGlobalSection
+EndGlobal
