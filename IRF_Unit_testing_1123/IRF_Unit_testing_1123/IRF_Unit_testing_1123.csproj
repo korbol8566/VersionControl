@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{575AEB7A-3590-4F36-8B30-AB44DBA8A518}</ProjectGuid>
+    <ProjectGuid>{611404BB-F104-45BD-AB29-18AF3272E009}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>IRF_Unit_testing_1123</RootNamespace>
     <AssemblyName>IRF_Unit_testing_1123</AssemblyName>
@@ -75,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UnitTestExample.sln" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UnitTestExample.Properties
+namespace IRF_Unit_Testing_1124.Properties
 {
 
 
