@@ -21,6 +21,11 @@ namespace IRF_microsim_20211129
         Random rng = new Random(1234);
         public Form1()
         {
+            
+        }
+
+        private void Simulation()
+        {
             InitializeComponent();
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
@@ -44,6 +49,7 @@ namespace IRF_microsim_20211129
                     string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
             }
         }
+
         public List<Person> GetPopulation(string csvpath)
         {
             List<Person> population = new List<Person>();
@@ -141,6 +147,11 @@ namespace IRF_microsim_20211129
                     Population.Add(újszülött);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulation();
         }
     }
 }
