@@ -25,6 +25,8 @@ namespace IRF_microsim_20211129
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+
+            Random rng = new Random(1234);
         }
         public List<Person> GetPopulation(string csvpath)
         {
